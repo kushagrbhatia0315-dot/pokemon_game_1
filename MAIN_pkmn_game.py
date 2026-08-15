@@ -2,7 +2,7 @@ import time
 import random
 from moves import pokedex
 from pokemon_base import pokemon
-#add feild effects
+#add feild effectss
 #add type effewctiveness
 #add more moves
 #add more pokemon
