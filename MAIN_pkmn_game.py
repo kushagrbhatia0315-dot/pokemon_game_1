@@ -2,12 +2,12 @@ import time
 import random
 from moves import pokedex
 from pokemon_base import pokemon
-#add feild effectss
-#add type effewctiveness
+#add feild effects and terrains
+#add type chart
 #add more moves
 #add more pokemon
 #add status moves
-#add staatus conditons
+#add all staatus conditons
 #use pygane
 #add ability to target mons
 #show pokemon and their hp
@@ -114,12 +114,13 @@ def use_move(player,target_pokemon,move):
         print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
         print()
     elif move.status==True:
+        #add logic for moves with status and power here
         if move.effect == "sleep":
             if target_pokemon.status_condition is not None:
                 print(f"But it failed! {target_pokemon.name} already has a status condition.")
             else:
                 target_pokemon.status_condition = "sleep"
-                target_pokemon.status_timer = random.randint(2, 4) # Sleeps for 2-3 turns
+                target_pokemon.status_timer = random.randint(2, 4) 
                 print(f"{target_pokemon.name} fell asleep!")
         print()
     else:
