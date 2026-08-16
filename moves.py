@@ -58,7 +58,7 @@ seed_bomb = move("seed_bomb", "grass", 100, 80, True,False)
 energy_ball = move("energy_ball", "grass", 100, 90, False,False)
 leaf_blade = move("leaf_blade", "grass", 100, 90, True,False)
 solar_beam = move("solar_beam", "grass", 100, 120, False,False)
-slee_powder=move("sleep_powder","grass",75,0,False,True,"sleep")
+sleep_powder=move("sleep_powder","grass",75,0,False,True,"sleep")
 
 # --- ELECTRIC TYPE (10) ---
 thunder_shock = move("thunder_shock", "electric", 100, 40, False,False)
@@ -99,7 +99,7 @@ venusaur_learnset = {
     "solar beam": solar_beam,
     "body slam": body_slam,
     "double edge": double_edge,
-    "sleep powder": sleep_powder
+    "sleep powder": sleep_powder,
     "admin":admin}
 
 blastoise_learnset = {
