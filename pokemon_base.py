@@ -27,7 +27,7 @@ Valid_natures = {
     "quirky": {"raised": None, "lowered": None}
 }
 class pokemon:
-    def __init__(self,name,hp,attack,special_attack,defense,special_defense,speed,possible_moves,ivs,evs,nature,type_1,type_2):
+    def __init__(self,name,hp,attack,special_attack,defense,special_defense,speed,possible_moves,ivs,evs,nature,type_1,type_2,):
 #ivs and evs are a list
         self.name=name
         self.level=50
@@ -39,6 +39,8 @@ class pokemon:
         self.special_attack=special_attack
         self.type_1=type_1
         self.type_2=type_2
+        self.status_condition = None
+        self.status_timer = 0
         for iv in ivs:
             if iv<0 or iv>31:
                 raise ValueError("Not within scope")
