@@ -2,6 +2,7 @@ import time
 import random
 from moves import pokedex
 from pokemon_base import pokemon
+#add shinies
 #add feild effects and terrains
 #add type chart
 #add more moves
