@@ -11,7 +11,7 @@ class move:
     
     
 admin=move("admin", "normal",100,2000,True,False)
-# --- NORMAL TYPE (10) ---
+# --- NORMAL TYPE 
 tackle = move("tackle", "normal", 100, 40, True,False)
 scratch = move("scratch", "normal", 100, 40, True,False)
 pound = move("pound", "normal", 100, 40, True,False)
@@ -22,8 +22,10 @@ body_slam = move("body_slam", "normal", 100, 85, True,False)
 take_down = move("take_down", "normal", 85, 90, True,False)
 double_edge = move("double_edge", "normal", 100, 120, True,False)
 hyper_beam = move("hyper_beam", "normal", 90, 150, False,False)
+# --- PHYSCIC TYPE 
+hypnosis = move("hypnosis" , "physicic", 70,0,False,True,"sleep")
 
-# --- FIRE TYPE (10) ---
+# --- FIRE TYPE 
 ember = move("ember", "fire", 100, 40, False,False)
 fire_spin = move("fire_spin", "fire", 85, 35, False,False)
 flame_wheel = move("flame_wheel", "fire", 100, 60, True,False)
@@ -127,7 +129,9 @@ blastoise_learnset = {
     "headbutt": headbutt,
     "take down": take_down,
     "admin":admin,
-    "dragon claw":dragon_claw}
+    "dragon claw":dragon_claw,
+    "hypnosis":hypnosis
+    }
 
 pikachu_learnset = {
     "quick attack": quick_attack,
@@ -140,6 +144,7 @@ pikachu_learnset = {
     "thunder": thunder,
     "slam": slam,
     "double edge": double_edge,
+    "hypnosis":hypnosis,
     "admin":admin}
 
 
@@ -155,6 +160,7 @@ snorlax_learnset = {
     "fire punch": fire_punch,
     "thunder punch": thunder_punch,
     "surf" : surf,
+    "hypnosis":hypnosis,
     "admin":admin}
 dragonite_learnset = {
     "twister": twister,
