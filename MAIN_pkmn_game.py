@@ -85,25 +85,30 @@ def use_move(player,target_pokemon,move):
         return
     else:
         print("The move hit succefully")
-    if move.physical==True:
-        attack_stat=player.final_stats["attack"]
-        defense_stat=target_pokemon.final_stats["defense"]
-    elif move.physical==False:
-        attack_stat=player.final_stats["special_attack"]
-        defense_stat=target_pokemon.final_stats["special_defense"]
-    damage = int((((22 * move.power * (attack_stat / defense_stat)) / 50) + 2))
-    if player.type_1==move.base_type or player.type_2 ==move.base_type:
-        print("It's a STAB move! (Damage boosted x1.5)")
-        damage = int(damage *random.randint(85,101) * 1.5*0.01)
+    if move.status==False:
+        if move.physical==True:
+            attack_stat=player.final_stats["attack"]
+            defense_stat=target_pokemon.final_stats["defense"]
+        elif move.physical==False:
+            attack_stat=player.final_stats["special_attack"]
+            defense_stat=target_pokemon.final_stats["special_defense"]
+        damage = int((((22 * move.power * (attack_stat / defense_stat)) / 50) + 2))
+        if player.type_1==move.base_type or player.type_2 ==move.base_type:
+            print("It's a STAB move! (Damage boosted x1.5)")
+            damage = int(damage *random.randint(85,101) * 1.5*0.01)
+        else:
+            print("Not a stab move")
+            damage=int(damage *random.randint(85,101)*0.01)
+        target_pokemon.current_hp -= damage
+        
+        if target_pokemon.current_hp < 0:
+            target_pokemon.current_hp = 0
+        print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
+        print()
+    elif move.status=True:
+        pass
     else:
-        print("Not a stab move")
-        damage=int(damage *random.randint(85,101)*0.01)
-    target_pokemon.current_hp -= damage
-    
-    if target_pokemon.current_hp < 0:
-        target_pokemon.current_hp = 0
-    print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
-    print()
+        pass
 def single_battle(player,opponent):
     p_mon = player["active"]
     o_mon = opponent["active"]
