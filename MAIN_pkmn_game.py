@@ -88,6 +88,12 @@ def use_move(player,target_pokemon,move):
             print(f"{player.name} is fast asleep and couldn't move!")
             print()
             return
+    elif player.status_condition == "paralysis":
+        chance_to_move=random.randint(1,101)
+        if chance_to_move<=25:
+            print(f"{player.name} is fully paralyzed! It can't move!")
+            print()
+            return
     print(f"{player.name} used the move {move.name}")
     roll=random.randint(1,100)
     if roll >move.accuracy:
@@ -124,6 +130,15 @@ def use_move(player,target_pokemon,move):
                 target_pokemon.status_condition = "sleep"
                 target_pokemon.status_timer = random.randint(2, 4) 
                 print(f"{target_pokemon.name} fell asleep!")
+        elif move.effect =="paralysis":
+            if target_pokemon.status_condition is not None:
+                print(f"But it failed! {target_pokemon.name} already has a status condition.")
+            else:
+                target_pokemon.status_condition = "paralysis"
+                target_pokemon.final_stats["speed"] = int(target_pokemon.final_stats["speed"]*0.25)
+                target_pokemon.status_timer =2 
+                print(F"{target_pokemon.name} is paralysed and may be unaable to move")
+            
         print()
     else:
         pass
