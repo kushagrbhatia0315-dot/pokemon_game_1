@@ -1,11 +1,15 @@
 
 class move:
-    def __init__(self,name,base_type,accuracy,power,physical,status):
+    def __init__(self,name,base_type,accuracy,power,physical,status,effect=None):
         self.name=name
         self.power=power
         self.base_type=base_type
         self.accuracy=accuracy
         self.physical=physical
+        self.status = status
+        self.effect = effect  
+    
+    
 admin=move("admin", "normal",100,2000,True,False)
 # --- NORMAL TYPE (10) ---
 tackle = move("tackle", "normal", 100, 40, True,False)
@@ -54,7 +58,7 @@ seed_bomb = move("seed_bomb", "grass", 100, 80, True,False)
 energy_ball = move("energy_ball", "grass", 100, 90, False,False)
 leaf_blade = move("leaf_blade", "grass", 100, 90, True,False)
 solar_beam = move("solar_beam", "grass", 100, 120, False,False)
-slee_powder=move("sleep_powder","grass",75,0,False,True)
+slee_powder=move("sleep_powder","grass",75,0,False,True,"sleep")
 
 # --- ELECTRIC TYPE (10) ---
 thunder_shock = move("thunder_shock", "electric", 100, 40, False,False)
