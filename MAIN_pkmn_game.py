@@ -21,8 +21,8 @@ from pokemon_base import pokemon
     
 def draft_pokemon(player_name):
 
-    print("Available Pokemon: Venusaur, Charizard, Blastoise, Pikachu, Snorlax")
-    
+    available_mons = ", ".join([name for name in pokedex.keys()])
+    print(f"Available Pokemon: {available_mons}")
     while True:
         choice = input(f"{player_name}, choose a Pokemon: ").lower().strip()
         
