@@ -73,6 +73,7 @@ thunderbolt = move("thunderbolt", "electric", 100, 90, False,False)
 wild_charge = move("wild_charge", "electric", 100, 90, True,False)
 zap_cannon = move("zap_cannon", "electric", 50, 120, False,False)
 thunder = move("thunder", "electric", 70, 110, False,False)
+thunder_wave = move("thunder_wave",90,0,False,True,"paralysis")
 # --- DRAGON TYPE 
 twister = move("twister", "dragon", 100, 40, False, False)
 dragon_breath = move("dragon_breath", "dragon", 100, 60, False, False)
@@ -145,6 +146,7 @@ pikachu_learnset = {
     "slam": slam,
     "double edge": double_edge,
     "hypnosis":hypnosis,
+    "thunder wave":thunder_wave
     "admin":admin}
 
 
