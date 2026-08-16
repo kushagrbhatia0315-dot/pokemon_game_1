@@ -109,10 +109,10 @@ def use_move(player,target_pokemon,move):
             print("Not a stab move")
             damage=int(damage *random.randint(85,101)*0.01)
         target_pokemon.current_hp -= damage
-         if target_pokemon.current_hp < 0:
-             target_pokemon.current_hp = 0
-         print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
-         print()
+        if target_pokemon.current_hp < 0:
+            target_pokemon.current_hp = 0
+        print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
+        print()
     elif move.status==True:
         if move.effect == "sleep":
             if target_pokemon.status_condition is not None:
