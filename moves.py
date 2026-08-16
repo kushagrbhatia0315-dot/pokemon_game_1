@@ -60,7 +60,7 @@ leaf_blade = move("leaf_blade", "grass", 100, 90, True,False)
 solar_beam = move("solar_beam", "grass", 100, 120, False,False)
 sleep_powder=move("sleep_powder","grass",75,0,False,True,"sleep")
 
-# --- ELECTRIC TYPE (10) ---
+# --- ELECTRIC TYPE 
 thunder_shock = move("thunder_shock", "electric", 100, 40, False,False)
 spark = move("spark", "electric", 100, 65, True,False)
 thunder_fang = move("thunder_fang", "electric", 95, 65, True,False)
@@ -71,6 +71,17 @@ thunderbolt = move("thunderbolt", "electric", 100, 90, False,False)
 wild_charge = move("wild_charge", "electric", 100, 90, True,False)
 zap_cannon = move("zap_cannon", "electric", 50, 120, False,False)
 thunder = move("thunder", "electric", 70, 110, False,False)
+# --- DRAGON TYPE 
+twister = move("twister", "dragon", 100, 40, False, False)
+dragon_breath = move("dragon_breath", "dragon", 100, 60, False, False)
+dragon_tail = move("dragon_tail", "dragon", 90, 60, True, False)
+breaking_swipe = move("breaking_swipe", "dragon", 100, 60, True, False)
+dragon_claw = move("dragon_claw", "dragon", 100, 80, True, False)
+dragon_pulse = move("dragon_pulse", "dragon", 100, 85, False, False)
+dragon_hammer = move("dragon_hammer", "dragon", 100, 90, True, False)
+dragon_rush = move("dragon_rush", "dragon", 75, 100, True, False)
+outrage = move("outrage", "dragon", 100, 120, True, False)
+draco_meteor = move("draco_meteor", "dragon", 90, 130, False, False)
 
 
 charizard_learnset = {
@@ -84,7 +95,9 @@ charizard_learnset = {
     "flare blitz": flare_blitz,
     "take down": take_down,
     "hyper beam": hyper_beam,
-    "admin":admin
+    "admin":admin,
+    "dragon pulse": dragon_pulse,
+    "draco meteor":draco_meteor
     
 }
 
@@ -113,7 +126,8 @@ blastoise_learnset = {
     "hydro pump": hydro_pump,
     "headbutt": headbutt,
     "take down": take_down,
-    "admin":admin}
+    "admin":admin,
+    "dragon claw":dragon_claw}
 
 pikachu_learnset = {
     "quick attack": quick_attack,
@@ -128,6 +142,7 @@ pikachu_learnset = {
     "double edge": double_edge,
     "admin":admin}
 
+
 snorlax_learnset = {
     "tackle": tackle,
     "pound": pound,
@@ -141,6 +156,20 @@ snorlax_learnset = {
     "thunder punch": thunder_punch,
     "surf" : surf,
     "admin":admin}
+dragonite_learnset = {
+    "twister": twister,
+    "dragon claw": dragon_claw,
+    "dragon rush": dragon_rush,
+    "outrage": outrage,
+    "draco meteor": draco_meteor,
+    "hyper beam": hyper_beam,
+    "fire punch": fire_punch,
+    "aqua tail" :aqua_tail,
+    "thunder punch": thunder_punch,
+    "surf": surf,
+    "body slam": body_slam,
+    "admin": admin
+}
 pokedex = {
     "venusaur": {
         "hp": 80, "attack": 82, "defense": 83, 
@@ -170,7 +199,12 @@ pokedex = {
         "hp": 160, "attack": 110, "defense": 65, 
         "special_attack": 65, "special_defense": 110, "speed": 30,
         "possible_moves": snorlax_learnset,
-        "type_1":"normal","type_2":None
+        "type_1":"normal","type_2":None},
+    "dragonite": {
+        "hp": 91, "attack": 134, "defense": 95, 
+        "special_attack": 100, "special_defense": 100, "speed": 80,
+        "possible_moves": dragonite_learnset,
+        "type_1": "dragon", "type_2": "flying"
     }
 }
 
