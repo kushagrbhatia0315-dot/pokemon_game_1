@@ -77,6 +77,15 @@ bot_mon.equipped_moves = [
 ]
 bot_mon.calculate_stats()
 def use_move(player,target_pokemon,move):
+    if player.status_condition == "sleep":
+        player.status_timer -= 1
+        if player.status_timer <= 0:
+            print(f"{player.name} woke up!")
+            player.status_condition = None
+        else:
+            print(f"{player.name} is fast asleep and couldn't move!")
+            print()
+            return
     print(f"{player.name} used the move {move.name}")
     roll=random.randint(1,100)
     if roll >move.accuracy:
@@ -100,13 +109,19 @@ def use_move(player,target_pokemon,move):
             print("Not a stab move")
             damage=int(damage *random.randint(85,101)*0.01)
         target_pokemon.current_hp -= damage
-        
-        if target_pokemon.current_hp < 0:
-            target_pokemon.current_hp = 0
-        print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
+         if target_pokemon.current_hp < 0:
+             target_pokemon.current_hp = 0
+         print(f"remaining hp of {target_pokemon.name} is {target_pokemon.current_hp}")
+         print()
+    elif move.status==True:
+        if move.effect == "sleep":
+            if target_pokemon.status_condition is not None:
+                print(f"But it failed! {target_pokemon.name} already has a status condition.")
+            else:
+                target_pokemon.status_condition = "sleep"
+                target_pokemon.status_timer = random.randint(2, 4) # Sleeps for 2-3 turns
+                print(f"{target_pokemon.name} fell asleep!")
         print()
-    elif move.status=True:
-        pass
     else:
         pass
 def single_battle(player,opponent):
