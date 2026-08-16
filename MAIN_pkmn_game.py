@@ -8,7 +8,6 @@ from pokemon_base import pokemon
 #add more pokemon
 #add status moves
 #add staatus conditons
-#consider probability$
 #use pygane
 #add ability to target mons
 #show pokemon and their hp
@@ -158,7 +157,7 @@ def main():
     player1 = {
             "name": "Player 1",
             "active": drafted_mon,  
-            "party": [drafted_mon]  
+            "party": [drafted_mon] 
         }
     bot_player = {
         "name": "Bot Team",
