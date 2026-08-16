@@ -9,6 +9,7 @@ from pokemon_base import pokemon
 #add status moves
 #add all staatus conditons
 #use pygane
+#add priority of moves
 #add ability to target mons
 #show pokemon and their hp
 #add abilities
