@@ -146,7 +146,7 @@ pikachu_learnset = {
     "slam": slam,
     "double edge": double_edge,
     "hypnosis":hypnosis,
-    "thunder wave":thunder_wave
+    "thunder wave":thunder_wave,
     "admin":admin}
 
 
