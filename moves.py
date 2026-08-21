@@ -38,6 +38,8 @@ will_o_wisp = move("will_o_wisp", "fire", 85, 0, False, True, "burn")
 
 # --- POISON TYPE
 toxic = move("toxic", "poison", 90, 0, False, True, "poison")
+sludge_bomb = move("sludge_bomb", "poison", 100, 90, False, False, effect="poison")
+poison_jab = move("poison_jab", "poison", 100, 80, True, False, effect="poison")
 
 # --- WATER TYPE 
 water_gun = move("water_gun", "water", 100, 40, False,False)
@@ -99,6 +101,7 @@ close_combat = move("close_combat", "fighting", 100, 120, True, False)
 aura_sphere = move("aura_sphere", "fighting", 100, 80, False, False)
 brick_break = move("brick_break", "fighting", 100, 75, True, False)
 mach_punch = move("mach_punch", "fighting", 100, 40, True, False)
+focus_blast = move("focus_blast", "fighting", 70, 120, False, False)
 
 # --- GROUND TYPE ---
 earthquake = move("earthquake", "ground", 100, 100, True, False)
@@ -113,6 +116,75 @@ hypnosis = move("hypnosis" , "physicic", 70,0,False,True,"sleep")
 # --- GHOST TYPE ---
 shadow_ball = move("shadow_ball", "ghost", 100, 80, False, False)
 shadow_claw = move("shadow_claw", "ghost", 100, 70, True, False)
+# --- ROCK TYPE ---
+stone_edge = move("stone_edge", "rock", 80, 100, True, False)
+
+# --- DARK TYPE ---
+dark_pulse = move("dark_pulse", "dark", 100, 80, False, False)
+crunch = move("crunch", "dark", 100, 80, True, False)
+
+
+charizard_learnset = {
+    "scratch": scratch,
+    "ember": ember,
+    "fire spin": fire_spin,
+    "fire fang": fire_fang,
+    "flamethrower": flamethrower,
+    "heat wave": heat_wave,
+    "fire blast": fire_blast,
+    "flare blitz": flare_blitz,
+    "take down": take_down,
+    "hyper beam": hyper_beam,
+    "admin":admin,
+    "dragon pulse": dragon_pulse,
+    "draco meteor":draco_meteor
+    
+}
+
+venusaur_learnset = {
+    "tackle": tackle,
+    "vine whip": vine_whip,
+    "razor leaf": razor_leaf,
+    "magical leaf": magical_leaf,
+    "giga drain": giga_drain,
+    "seed bomb": seed_bomb,
+    "energy ball": energy_ball,
+    "solar beam": solar_beam,
+    "body slam": body_slam,
+    "double edge": double_edge,
+    "sleep powder": sleep_powder,
+    "admin":admin}
+
+blastoise_learnset = {
+    "tackle": tackle,
+    "water gun": water_gun,
+    "bubble": bubble,
+    "water pulse": water_pulse,
+    "dive": dive,
+    "surf": surf,
+    "aqua tail": aqua_tail,
+    "hydro pump": hydro_pump,
+    "headbutt": headbutt,
+    "take down": take_down,
+    "admin":admin,
+    "dragon claw":dragon_claw,
+    "hypnosis":hypnosis
+    }
+
+pikachu_learnset = {
+    "quick attack": quick_attack,
+    "thunder shock": thunder_shock,
+    "spark": spark,
+    "shock wave": shock_wave,
+    "discharge": discharge,
+    "thunderbolt": thunderbolt,
+    "wild charge": wild_charge,
+    "thunder": thunder,
+    "slam": slam,
+    "double edge": double_edge,
+    "hypnosis":hypnosis,
+    "thunder wave":thunder_wave,
+    "admin":admin}
 
 
 charizard_learnset = {
@@ -192,6 +264,7 @@ snorlax_learnset = {
     "surf" : surf,
     "hypnosis":hypnosis,
     "admin":admin}
+
 dragonite_learnset = {
     "twister": twister,
     "dragon claw": dragon_claw,
@@ -208,46 +281,61 @@ dragonite_learnset = {
 }
 gengar_learnset = {
     "shadow ball": shadow_ball,
+    "sludge bomb": sludge_bomb,
+    "focus blast": focus_blast,
+    "dark pulse": dark_pulse,
     "thunderbolt": thunderbolt,
+    "energy ball": energy_ball,
+    "hypnosis": hypnosis,
     "will o wisp": will_o_wisp,
     "toxic": toxic,
-    "energy ball": energy_ball,
-    "admin": admin
-}
-
-garchomp_learnset = {
-    "earthquake": earthquake,
-    "dragon claw": dragon_claw,
-    "outrage": outrage,
-    "brick break": brick_break,
-    "fire fang": fire_fang,
     "admin": admin
 }
 
 alakazam_learnset = {
     "psychic": psychic_attack,
     "shadow ball": shadow_ball,
-    "thunder wave": thunder_wave,
+    "focus blast": focus_blast,
     "energy ball": energy_ball,
+    # Fun fact: Alakazam can learn the elemental punches!
+    "fire punch": fire_punch,
+    "ice punch": ice_punch,
+    "thunder punch": thunder_punch,
+    "thunder wave": thunder_wave,
+    "hypnosis": hypnosis,
     "admin": admin
 }
 
 machamp_learnset = {
     "close combat": close_combat,
     "mach punch": mach_punch,
+    "brick break": brick_break,
+    "stone edge": stone_edge,
+    "poison jab": poison_jab,
+    "crunch": crunch,
+    "earthquake": earthquake,
     "ice punch": ice_punch,
     "thunder punch": thunder_punch,
     "fire punch": fire_punch,
-    "earthquake": earthquake,
+    "body slam": body_slam,
     "admin": admin
 }
-
 lapras_learnset = {
     "surf": surf,
-    "ice beam": ice_beam,
     "hydro pump": hydro_pump,
-    "body slam": body_slam,
+    "waterfall": waterfall,
+    "water pulse": water_pulse,
+    "ice beam": ice_beam,
+    "blizzard": blizzard,
     "thunderbolt": thunderbolt,
+    "thunder": thunder,
+    "psychic": psychic_attack,
+    "dragon pulse": dragon_pulse,
+    "outrage": outrage,
+    "body slam": body_slam,
+    "double edge": double_edge,
+    "hyper beam": hyper_beam,
+    "toxic": toxic,
     "admin": admin
 }
 pokedex = {
@@ -262,12 +350,6 @@ pokedex = {
         "special_attack": 130, "special_defense": 75, "speed": 110,
         "possible_moves": gengar_learnset,
         "type_1": "ghost", "type_2": "poison"
-    },
-    "garchomp": {
-        "hp": 108, "attack": 130, "defense": 95, 
-        "special_attack": 80, "special_defense": 85, "speed": 102,
-        "possible_moves": garchomp_learnset,
-        "type_1": "dragon", "type_2": "ground"
     },
     "alakazam": {
         "hp": 55, "attack": 50, "defense": 45, 
