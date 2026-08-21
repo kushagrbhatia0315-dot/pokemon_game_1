@@ -2,12 +2,10 @@ import time
 import random
 from moves import pokedex
 from pokemon_base import pokemon
-#add shinies
 #add feild effects and terrains
 #add type chart
 #add more moves
 #add more pokemon
-#optimise status conditons
 #use pygane
 #add priority of moves
 #add ability to target mons
@@ -18,7 +16,6 @@ from pokemon_base import pokemon
 #2 player bot mode
 #add moltiple pokemon in team in dictoanray and ability to choose which to use 
 #switching
-#add a def for hp=0 check
     
 def draft_pokemon(player_name):
 
