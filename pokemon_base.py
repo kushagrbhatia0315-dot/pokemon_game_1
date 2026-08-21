@@ -29,7 +29,13 @@ Valid_natures = {
 class pokemon:
     def __init__(self,name,hp,attack,special_attack,defense,special_defense,speed,possible_moves,ivs,evs,nature,type_1,type_2,):
 #ivs and evs are a list
-        self.name=name
+        if random.randint(1, 512) == 51:
+            self.name = f"Shiny {name.title()}"
+            self.is_shiny = True
+            print("YOUR POKEMON IS SHINY")
+        else:
+            self.name = name
+            self.is_shiny = False
         self.level=50
         self.hp=hp
         self.attack=attack
@@ -41,6 +47,7 @@ class pokemon:
         self.type_2=type_2
         self.status_condition = None
         self.status_timer = 0
+        
         for iv in ivs:
             if iv<0 or iv>31:
                 raise ValueError("Not within scope")
