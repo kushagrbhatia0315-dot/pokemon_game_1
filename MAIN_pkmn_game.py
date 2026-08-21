@@ -7,8 +7,7 @@ from pokemon_base import pokemon
 #add type chart
 #add more moves
 #add more pokemon
-#add status moves
-#add all staatus conditons
+#optimise status conditons
 #use pygane
 #add priority of moves
 #add ability to target mons
@@ -89,11 +88,19 @@ def use_move(player,target_pokemon,move):
             print()
             return
     elif player.status_condition == "paralysis":
-        chance_to_move=random.randint(1,101)
+        chance_to_move=random.randint(1,100)
         if chance_to_move<=25:
             print(f"{player.name} is fully paralyzed! It can't move!")
             print()
             return
+    elif player.status_condition == "frozen":
+        if random.randint(0, 100) <= 20: 
+            print(f"{player.name} thawed out!")
+            player.status_condition = None
+        else:
+            print(f"{player.name} is frozen solid!")
+            print()
+            return   
     print(f"{player.name} used the move {move.name}")
     roll=random.randint(1,100)
     if roll >move.accuracy:
@@ -116,6 +123,11 @@ def use_move(player,target_pokemon,move):
         else:
             print("Not a stab move")
             damage=int(damage *random.randint(85,101)*0.01)
+        if random.randint(1,24)==2:
+            damage=damage*1.5
+            print("A CRITICAL HIT!!!!")
+        if player.status_condition == "burn" and move.physical == True:
+            damage = int(damage * 0.5)
         target_pokemon.current_hp -= damage
         if target_pokemon.current_hp < 0:
             target_pokemon.current_hp = 0
@@ -123,6 +135,8 @@ def use_move(player,target_pokemon,move):
         print()
     elif move.status==True:
         #add logic for moves with status and power here
+        #
+        #
         if move.effect == "sleep":
             if target_pokemon.status_condition is not None:
                 print(f"But it failed! {target_pokemon.name} already has a status condition.")
@@ -135,11 +149,37 @@ def use_move(player,target_pokemon,move):
                 print(f"But it failed! {target_pokemon.name} already has a status condition.")
             else:
                 target_pokemon.status_condition = "paralysis"
-                target_pokemon.final_stats["speed"] = int(target_pokemon.final_stats["speed"]*0.25)
                 target_pokemon.status_timer =2 
                 print(F"{target_pokemon.name} is paralysed and may be unaable to move")
-            
+        elif move.effect=="poison":
+            if target_pokemon.status_conditon is not None:
+                print(f"But it failed! {target_pokemon.name} already has a status condition.")
+            else:
+                target_pokemon.status_conditon-"poison"
+                print(f"{target_pokemon.name} was poisoned!")
+                target_pokemon.status_timer =2 
+        elif move.effect == "burn":
+            if target_pokemon.status_condition is not None:
+                print(f"But it failed! {target_pokemon.name} already has a status condition.")
+            else:
+                target_pokemon.status_condition = "burn"
+                target_pokemon.status_timer =2 
+                print(f"{target_pokemon.name} was burned!")
+        elif move.effect == "frozen":
+            if target_pokemon.status_condition is not None:
+                print(f"But it failed! {target_pokemon.name} already has a status condition.")
+            else:
+                target_pokemon.status_condition = "frozen"
+                print(f"{target_pokemon.name} fell asleep!")
+                target_pokemon.status_timer =random.randint(1,4)
         print()
+        if player.status_condition in ["burn", "poison"] and player.current_hp > 0:
+        status_damage = max(1, int(player.final_stats["hp"] / 16))
+        player.current_hp -= status_damage
+        if player.current_hp < 0:
+            player.current_hp = 0
+        print(f"{player.name} was hurt by its {player.status_condition}! (-{status_damage} HP)")
+        print(f"remaining hp of {player.name} is {player.current_hp}"
     else:
         pass
 def single_battle(player,opponent):
