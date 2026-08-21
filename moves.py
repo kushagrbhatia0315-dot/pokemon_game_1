@@ -7,7 +7,7 @@ class move:
         self.accuracy=accuracy
         self.physical=physical
         self.status = status
-        self.effect = effect  
+        self.effect = effect
     
     
 admin=move("admin", "normal",100,2000,True,False)
@@ -22,8 +22,6 @@ body_slam = move("body_slam", "normal", 100, 85, True,False)
 take_down = move("take_down", "normal", 85, 90, True,False)
 double_edge = move("double_edge", "normal", 100, 120, True,False)
 hyper_beam = move("hyper_beam", "normal", 90, 150, False,False)
-# --- PHYSCIC TYPE 
-hypnosis = move("hypnosis" , "physicic", 70,0,False,True,"sleep")
 
 # --- FIRE TYPE 
 ember = move("ember", "fire", 100, 40, False,False)
@@ -36,6 +34,10 @@ flamethrower = move("flamethrower", "fire", 100, 90, False,False)
 heat_wave = move("heat_wave", "fire", 90, 95, False,False)
 fire_blast = move("fire_blast", "fire", 85, 110, False,False)
 flare_blitz = move("flare_blitz", "fire", 100, 120, True,False)
+will_o_wisp = move("will_o_wisp", "fire", 85, 0, False, True, "burn")
+
+# --- POISON TYPE
+toxic = move("toxic", "poison", 90, 0, False, True, "poison")
 
 # --- WATER TYPE 
 water_gun = move("water_gun", "water", 100, 40, False,False)
@@ -61,6 +63,8 @@ energy_ball = move("energy_ball", "grass", 100, 90, False,False)
 leaf_blade = move("leaf_blade", "grass", 100, 90, True,False)
 solar_beam = move("solar_beam", "grass", 100, 120, False,False)
 sleep_powder=move("sleep_powder","grass",75,0,False,True,"sleep")
+stun_spore = move("stun_spore", "grass", 75, 0, False, True, "paralysis")
+spore = move("spore", "grass", 100, 0, False, True, "sleep")
 
 # --- ELECTRIC TYPE 
 thunder_shock = move("thunder_shock", "electric", 100, 40, False,False)
@@ -85,6 +89,30 @@ dragon_hammer = move("dragon_hammer", "dragon", 100, 90, True, False)
 dragon_rush = move("dragon_rush", "dragon", 75, 100, True, False)
 outrage = move("outrage", "dragon", 100, 120, True, False)
 draco_meteor = move("draco_meteor", "dragon", 90, 130, False, False)
+# --- ICE TYPE ---
+ice_beam = move("ice_beam", "ice", 100, 90, False, False, effect="frozen")
+blizzard = move("blizzard", "ice", 70, 110, False, False, effect="frozen")
+ice_punch = move("ice_punch", "ice", 100, 75, True, False, effect="frozen")
+
+# --- FIGHTING TYPE ---
+close_combat = move("close_combat", "fighting", 100, 120, True, False)
+aura_sphere = move("aura_sphere", "fighting", 100, 80, False, False)
+brick_break = move("brick_break", "fighting", 100, 75, True, False)
+mach_punch = move("mach_punch", "fighting", 100, 40, True, False)
+
+# --- GROUND TYPE ---
+earthquake = move("earthquake", "ground", 100, 100, True, False)
+earth_power = move("earth_power", "ground", 100, 90, False, False)
+bulldoze = move("bulldoze", "ground", 100, 60, True, False)
+
+# --- PSYCHIC TYPE ---
+psychic_attack = move("psychic", "psychic", 100, 90, False, False) 
+zen_headbutt = move("zen_headbutt", "psychic", 90, 80, True, False)
+hypnosis = move("hypnosis" , "physicic", 70,0,False,True,"sleep")
+
+# --- GHOST TYPE ---
+shadow_ball = move("shadow_ball", "ghost", 100, 80, False, False)
+shadow_claw = move("shadow_claw", "ghost", 100, 70, True, False)
 
 
 charizard_learnset = {
@@ -178,6 +206,50 @@ dragonite_learnset = {
     "body slam": body_slam,
     "admin": admin
 }
+gengar_learnset = {
+    "shadow ball": shadow_ball,
+    "thunderbolt": thunderbolt,
+    "will o wisp": will_o_wisp,
+    "toxic": toxic,
+    "energy ball": energy_ball,
+    "admin": admin
+}
+
+garchomp_learnset = {
+    "earthquake": earthquake,
+    "dragon claw": dragon_claw,
+    "outrage": outrage,
+    "brick break": brick_break,
+    "fire fang": fire_fang,
+    "admin": admin
+}
+
+alakazam_learnset = {
+    "psychic": psychic_attack,
+    "shadow ball": shadow_ball,
+    "thunder wave": thunder_wave,
+    "energy ball": energy_ball,
+    "admin": admin
+}
+
+machamp_learnset = {
+    "close combat": close_combat,
+    "mach punch": mach_punch,
+    "ice punch": ice_punch,
+    "thunder punch": thunder_punch,
+    "fire punch": fire_punch,
+    "earthquake": earthquake,
+    "admin": admin
+}
+
+lapras_learnset = {
+    "surf": surf,
+    "ice beam": ice_beam,
+    "hydro pump": hydro_pump,
+    "body slam": body_slam,
+    "thunderbolt": thunderbolt,
+    "admin": admin
+}
 pokedex = {
     "venusaur": {
         "hp": 80, "attack": 82, "defense": 83, 
@@ -185,6 +257,36 @@ pokedex = {
         "possible_moves": venusaur_learnset,
         "type_1":"grass","type_2":"poison"
     },
+    "gengar": {
+        "hp": 60, "attack": 65, "defense": 60, 
+        "special_attack": 130, "special_defense": 75, "speed": 110,
+        "possible_moves": gengar_learnset,
+        "type_1": "ghost", "type_2": "poison"
+    },
+    "garchomp": {
+        "hp": 108, "attack": 130, "defense": 95, 
+        "special_attack": 80, "special_defense": 85, "speed": 102,
+        "possible_moves": garchomp_learnset,
+        "type_1": "dragon", "type_2": "ground"
+    },
+    "alakazam": {
+        "hp": 55, "attack": 50, "defense": 45, 
+        "special_attack": 135, "special_defense": 95, "speed": 120,
+        "possible_moves": alakazam_learnset,
+        "type_1": "psychic", "type_2": None
+    },
+    "machamp": {
+        "hp": 90, "attack": 130, "defense": 80, 
+        "special_attack": 65, "special_defense": 85, "speed": 55,
+        "possible_moves": machamp_learnset,
+        "type_1": "fighting", "type_2": None
+    },
+    "lapras": {
+        "hp": 130, "attack": 85, "defense": 80, 
+        "special_attack": 85, "special_defense": 95, "speed": 60,
+        "possible_moves": lapras_learnset,
+        "type_1": "water", "type_2": "ice"
+    }
     "charizard": {
         "hp": 78, "attack": 84, "defense": 78, 
         "special_attack": 109, "special_defense": 85, "speed": 100,
